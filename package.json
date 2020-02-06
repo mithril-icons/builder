@@ -1,0 +1,38 @@
+{
+  "name": "@mithril-icons/feather",
+  "version": "1.0.0",
+  "description": "Mithril icons generated from https://feathericons.com/",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "clean": "rimraf components/*.ts components/*.js components/util/*.d.ts components/util/**.js",
+    "generate": "ts-node -P tsconfig.prod.json -O '{\"module\":\"commonjs\"}' build.ts",
+    "build": "tsc --build tsconfig.prod.json",
+    "prepare": "npm run clean && npm run generate && npm run build"
+  },
+  "keywords": [],
+  "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/feather-icons": "4.7.0",
+    "@types/mithril": "2.0.2",
+    "@types/node": "13.7.0",
+    "@typescript-eslint/eslint-plugin": "2.19.0",
+    "@typescript-eslint/parser": "2.19.0",
+    "eslint": "6.8.0",
+    "eslint-config-standard-with-typescript": "12.0.1",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "rimraf": "3.0.1",
+    "ts-node": "8.6.2",
+    "typescript": "3.7.5"
+  },
+  "dependencies": {
+    "feather-icons": "4.25.0"
+  },
+  "peerDependencies": {
+    "mithril": "^2.0.4"
+  }
+}

@@ -1,0 +1,11 @@
+components/**.ts
+!components/**.d.ts
+!components/**.js
+components/util/svg.ts
+!index.js
+!index.d.ts
+index.ts
+build.ts
+tsconfig.json
+tsconfig.prod.json
+.eslint.js
