@@ -2,6 +2,20 @@
   "name": "@mithril-icons/feather",
   "version": "1.0.0",
   "description": "Mithril icons generated from https://feathericons.com/",
+  "homepage": "https://mithril-icons.com/feather",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mithril-icons/feather"
+  },
+  "keywords": [
+    "mithril",
+    "mithriljs",
+    "icon",
+    "icons",
+    "feather"
+  ],
+  "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
+  "license": "MIT",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -10,9 +24,6 @@
     "build": "tsc --build tsconfig.prod.json",
     "prepare": "npm run clean && npm run generate && npm run build"
   },
-  "keywords": [],
-  "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
-  "license": "MIT",
   "devDependencies": {
     "@types/feather-icons": "4.7.0",
     "@types/mithril": "2.0.2",
@@ -25,12 +36,10 @@
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
+    "feather-icons": "4.25.0",
     "rimraf": "3.0.1",
     "ts-node": "8.6.2",
     "typescript": "3.7.5"
-  },
-  "dependencies": {
-    "feather-icons": "4.25.0"
   },
   "peerDependencies": {
     "mithril": "^2.0.4"
