@@ -23,7 +23,7 @@ export interface SVGAttributes {
    * The cursor attribute specifies the mouse cursor displayed when the mouse pointer is over an element.
    * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cursor
    */
-  cursor?: 'auto' | 'crosshair' | 'default' | 'pointer' | 'move' | 'e-resize' | 'ne-resize' | 'nw-resize' | 'n-resize' | 'se-resize' | 'sw-resize' | 's-resize' | 'w-resize| text' | 'wait' | 'help' | 'inherit'
+  cursor?: 'auto' | 'crosshair' | 'default' | 'pointer' | 'move' | 'e-resize' | 'ne-resize' | 'nw-resize' | 'n-resize' | 'se-resize' | 'sw-resize' | 's-resize' | 'w-resize' | 'text' | 'wait' | 'help' | 'inherit'
   /**
    * The stroke attribute is a presentation attribute defining the color (or any SVG paint servers like gradients or patterns) used to paint the outline of the shape
    * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke
