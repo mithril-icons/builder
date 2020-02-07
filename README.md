@@ -4,6 +4,12 @@
 
 Easy to use and customizable [mithril.js](https://mithril.js.org/) icon components based on [Feather icon set](https://feathericons.com) with Typescript support.
 
+## Highlights
+- First class Typescript support
+- Ability to add any SVG attribute to the icons
+- Tree-shaking friendly structure
+- No `m.trust` calls - all the icons are defined explicitly
+
 ## Installation
 
 ```
