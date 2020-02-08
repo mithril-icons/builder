@@ -1,6 +1,6 @@
 # Feather icons for Mithril.js
 
-
+![NPM package downloads](https://img.shields.io/npm/dw/@mithril-icons/feather?style=flat-square)
 
 Easy to use and customizable [mithril.js](https://mithril.js.org/) icon components based on [Feather icon set](https://feathericons.com) with Typescript support.
 

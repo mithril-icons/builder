@@ -1,5 +1,6 @@
 # Clarity icons for Mithril.js
 
+![NPM package downloads](https://img.shields.io/npm/dw/@mithril-icons/clarity?style=flat-square)
 
 
 Easy to use and customizable [mithril.js](https://mithril.js.org/) icon components based on [Clarity icon set](https://clarity.design/icons) with Typescript support.
