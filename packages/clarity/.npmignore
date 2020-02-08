@@ -1,0 +1,11 @@
+icons/**.ts
+!icons/**.d.ts
+!icons/**.js
+components/util/svg.ts
+!icons.js
+!icons.d.ts
+index.ts
+!svg.d.ts
+svg.js
+svg.ts
+tsconfig.json
