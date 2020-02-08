@@ -28,48 +28,44 @@ import * as F from '@mithril-icons/clarity'
 const Example = {
   view: function () {
     return m('div',
-      m(F.Archive),
-      m(F.Activity),
+      m(F.AddLine),
+      m(F.AlertSolid),
   }
 }
 ```
 Selectively import needed icons:
 ```
 import m from 'mithril'
-import { Archive, Activity } from '@mithril-icons/clarity'
+import { AddLine, AlertSolid } from '@mithril-icons/clarity'
 
 const Example = {
   view: function () {
     return m('div',
-      m(Archive),
-      m(Activity),
+      m(AddLine),
+      m(AlertSolid),
   }
 }
 ```
 You can also import only selected icons directly. This might reduce overall bundle size (depends on your bundler):
 ```
 import m from 'mithril'
-import Archive from '@mithril-icons/clarity/components/Archive'
+import AddLine from '@mithril-icons/clarity/components/AddLine'
 
 const Example = {
   view: function () {
     return m('div',
-      m(Archive, { color: '#25ff56', 'stroke-linecap': 'butt' }),
-      m(Activity, { fill: '#ff4405', 'stroke-width': 2 }),
+      m(AddLine, { color: '#25ff56', 'stroke-linecap': 'butt' }),
+      m(AlertSolid, { fill: '#ff4405', 'stroke-width': 2 }),
   }
 }
 ```
 All of the icons are rendered directly to SVG VNode so specified attributes will be added to svg node. It means that:
 ```
-m(Archive, { color: '#ff4405', width: 50, cursor: 'crosshair', 'stroke-opacity': '0.7', 'stroke-linecap': 'butt' })
+m(AlertSolid, { fill: '#ff4405', width: 50, cursor: 'crosshair', 'stroke-opacity': '0.7', 'stroke-linecap': 'butt' })
 ```
 will be rendered to:
 ```
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round" color="#ff4405" cursor="crosshair" stroke-opacity="0.7">
-  <polyline points="21 8 21 21 3 21 3 8"></polyline>
-  <rect x="1" y="3" width="22" height="5"></rect>
-  <line x1="10" y1="12" x2="14" y2="12"></line>
-</svg>
+<svg version="1.1" width="50" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ff4405" cursor="crosshair" stroke-opacity="0.7" stroke-linecap="butt"><title>alert-solid</title><path d="M18,2.5c-8.82,0-16,6.28-16,14s7.18,14,16,14a18,18,0,0,0,4.88-.68l5.53,3.52a1,1,0,0,0,1.54-.84l0-6.73a13,13,0,0,0,4-9.27C34,8.78,26.82,2.5,18,2.5ZM16.93,9.13a1.41,1.41,0,1,1,2.81,0V18.9a1.41,1.41,0,1,1-2.81,0Zm1.41,17.35a1.87,1.87,0,1,1,1.87-1.87A1.87,1.87,0,0,1,18.34,26.47Z" class="clr-i-solid clr-i-solid-path-1"></path><rect x="0" y="0" width="36" height="36" fill-opacity="0"></rect></svg>
 ```
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
