@@ -1,0 +1,24 @@
+{
+  "name": "@mithril-icons/feather",
+  "version": "1.0.0",
+  "description": "Mithril icons generated from https://feathericons.com/",
+  "homepage": "https://mithril-icons.com/feather",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mithril-icons/builder"
+  },
+  "keywords": [
+    "mithril",
+    "mithriljs",
+    "icon",
+    "icons",
+    "feather"
+  ],
+  "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "mithril": "^2.0.4"
+  }
+}

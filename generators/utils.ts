@@ -1,8 +1,9 @@
-import feather from 'feather-icons'
+
 import fs from 'fs'
+import request from 'request'
 import * as svgparser from 'svg-parser'
 
-const sanitize = (input: string): string => {
+export const sanitize = (input: string): string => {
   const capitalize = (input: string): string => {
     return input.charAt(0).toUpperCase() + input.slice(1)
   }
@@ -13,6 +14,38 @@ const sanitize = (input: string): string => {
     joined = `n${joined}`
   }
   return joined.replace(/[^\w\s]/, '')
+}
+
+export const download = async (url: string, filePath: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    if (fs.existsSync(filePath)) {
+      console.log(`${filePath} already exists. Skipping download`)
+      return resolve()
+    }
+    console.log(`Downloading ${url} to ${filePath}`)
+    const archive = fs.createWriteStream(filePath)
+    const req = request({ uri: url })
+
+    req.pipe(archive)
+
+    req.on('finish', () => {
+      archive.close()
+    })
+
+    req.on('error', (e) => {
+      archive.close()
+      fs.unlinkSync(filePath)
+      reject(e)
+    })
+
+    archive.on('error', (e) => {
+      archive.close()
+      fs.unlinkSync(filePath)
+      reject(e)
+    })
+
+    archive.on('close', () => resolve())
+  })
 }
 
 const toMithrilNodes = (svg: svgparser.RootNode): string => {
@@ -37,33 +70,13 @@ const toMithrilNodes = (svg: svgparser.RootNode): string => {
   return parseNodeToString(svg.children[0], true)
 }
 
-const createMithrilComponent = (svg: string, iconName: string): string => {
+export const createMithrilComponent = (svg: string, iconName: string): string => {
   const parsed = svgparser.parse(svg)
   const processed = toMithrilNodes(parsed)
   const result = `import m from 'mithril'\n\
-import { SVGAttributes } from './util/svg'\n\n\
+import { SVGAttributes } from '../svg'\n\n\
 const ${iconName}: m.Component<SVGAttributes> = {\
  view: ({ attrs }) => ${processed} }\n\
 export default ${iconName}\n`
   return result
 }
-
-const indexFile = fs.createWriteStream('./index.ts')
-
-if (!fs.existsSync('./components')) {
-  fs.mkdirSync('./components')
-}
-
-for (const key in feather.icons) {
-  if (Object.prototype.hasOwnProperty.call(feather.icons, key)) {
-    const icon = feather.icons[key]
-    if (Object.prototype.hasOwnProperty.call(icon, 'name')) {
-      const sanitizedName = sanitize(icon.name)
-      const component = createMithrilComponent(icon.toSvg(), sanitizedName)
-      fs.writeFileSync(`./components/${sanitizedName}.ts`, component)
-      indexFile.write(`export { default as ${sanitizedName} } from './components/${sanitizedName}'\n`)
-    }
-  }
-}
-
-indexFile.close()

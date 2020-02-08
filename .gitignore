@@ -106,10 +106,7 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-index.ts
-index.d.ts
-index.js
-components/*.ts
-components/*.js
-components/util/svg.js
-components/util/svg.d.ts
+packages/**/**.ts
+packages/**/**.js
+
+assets/

@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["DOM", "ESNext"],
-    "module": "ES6",
-    "jsx": "react",
-    "jsxFactory": "h",
+    "target": "ES2018",
+    "lib": ["ES6","ES2018", "ES2019", "ES2020"],
+    "module": "CommonJS",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "include": ["./build.ts", "./index.ts", "components"]
+  "include": ["generators", "utils", "just.config.ts"]
 }

@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "declaration": true
-  },
-  "include": ["./index.ts", "components"]
-}
