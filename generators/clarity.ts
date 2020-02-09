@@ -1,9 +1,8 @@
 import fs from 'fs'
 import path from 'path'
-import cp from 'child_process'
 import Zip from 'adm-zip'
 import Rimraf from 'rimraf'
-import { sanitize, download, createMithrilComponent } from './utils'
+import { sanitize, download, createMithrilComponent, getHash } from './utils'
 
 const UtilsPath = path.join(__dirname, '..', 'util')
 const OutputPath = path.join(__dirname, '..', 'packages', 'clarity')
@@ -11,7 +10,7 @@ const IndexPath = path.join(OutputPath, 'index.ts')
 const IconsPath = path.join(OutputPath, 'icons')
 const SvgPath = path.join(__dirname, 'clarity_svg')
 const IconsUrl = 'https://github.com/vmware/clarity-assets/archive/master.zip'
-const ArchivePath = path.join(__dirname, '..', 'assets', `clarity${getClarityHash()}.zip`)
+const ArchivePath = path.join(__dirname, '..', 'assets', `clarity${getHash('https://github.com/vmware/clarity-assets')}.zip`)
 
 async function generateComponents (): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -44,11 +43,6 @@ async function generateComponents (): Promise<void> {
   )
 }
 
-function getClarityHash (): string {
-  const hash = cp.execSync('git ls-remote https://github.com/vmware/clarity-assets master', { encoding: 'utf-8' })
-  return hash.split(/\s/)[0]
-}
-
 function unzip (path: string): void {
   console.log('Extracting archive...')
   const zipUtil = new Zip(path)
@@ -58,7 +52,6 @@ function unzip (path: string): void {
 function cleanup (): void {
   console.log('Cleaning up...')
   Rimraf.sync(SvgPath)
-  // fs.unlinkSync(ArchivePath)
 }
 
 download(IconsUrl, ArchivePath)

@@ -1,5 +1,6 @@
 
 import fs from 'fs'
+import cp from 'child_process'
 import request from 'request'
 import * as svgparser from 'svg-parser'
 
@@ -48,20 +49,25 @@ export const download = async (url: string, filePath: string): Promise<void> => 
   })
 }
 
+export function getHash (repo: string): string {
+  const hash = cp.execSync(`git ls-remote ${repo} master`, { encoding: 'utf-8' })
+  return hash.split(/\s/)[0]
+}
+
 const toMithrilNodes = (svg: svgparser.RootNode): string => {
   const parseNodeToString = (svg: svgparser.Node, isSvg: boolean): string => {
     if (svg.type === 'text') {
-      return `"${svg.value?.toString() ?? ''}"`
+      return `"${svg.value?.toString().replace('\n', '') ?? ''}"`
     }
     if (svg.tagName == null) {
       throw new Error('missing tag name')
     }
-    const children = svg.children.map(x => typeof x === 'string' ? `"${x}"` : parseNodeToString(x, false)).join(',')
-    let attrs = `${JSON.stringify({ ...svg.properties })}`
+    const children = svg.children.map(x => typeof x === 'string' ? `"${x.replace('\n', '')}"` : parseNodeToString(x, false)).join(',')
+    let attrs = `${JSON.stringify({ ...svg.properties })}`.replace('\n', '')
     if (isSvg) {
-      attrs = attrs.replace('}', ', ...attrs }')
+      attrs = attrs.replace('}', ', ...attrs }').replace('\n', '')
     }
-    return `m("${svg.tagName}", ${attrs}, ${children})`
+    return `m("${svg.tagName}", ${attrs}, ${children})`.replace('\n', '')
   }
 
   if (svg.children.length > 1) {
