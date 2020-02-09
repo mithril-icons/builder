@@ -16,6 +16,12 @@ Easy to use and customizable [mithril.js](https://mithril.js.org/) icon componen
 If you just want to use the generated icons install one of the relevant NPM libraries:
 - [@mithril-icons/feather](./packages/feather)
 - [@mithril-icons/clarity](./packages/clarity)
+- [@mithril-icons/devicon](./packages/devicon)
+- [@mithril-icons/entypo](./packages/entypo)
+- [@mithril-icons/font-awesome](./packages/font-awesome)
+- [@mithril-icons/jam](./packages/jam)
+- [@mithril-icons/material-design](./packages/material-design)
+- [@mithril-icons/octicons](./packages/octicons)
 
 ### Working with builder
 If you want to play with builder iteself - check out icon generation, contribute new icon set etc. you need to clone the repository.
