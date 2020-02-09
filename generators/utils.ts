@@ -76,11 +76,11 @@ const toMithrilNodes = (svg: svgparser.RootNode): string => {
   return parseNodeToString(svg.children[0], true)
 }
 
-export const createMithrilComponent = (svg: string, iconName: string): string => {
+export const createMithrilComponent = (svg: string, iconName: string, svgHelperImport: string = '../svg'): string => {
   const parsed = svgparser.parse(svg)
   const processed = toMithrilNodes(parsed)
   const result = `import m from 'mithril'\n\
-import { SVGAttributes } from '../svg'\n\n\
+import { SVGAttributes } from '${svgHelperImport}'\n\n\
 const ${iconName}: m.Component<SVGAttributes> = {\
  view: ({ attrs }) => ${processed} }\n\
 export default ${iconName}\n`
