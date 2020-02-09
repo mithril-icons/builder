@@ -21,6 +21,7 @@
     "regenerate": "just run"
   },
   "devDependencies": {
+    "@primer/octicons": "9.4.0",
     "@types/adm-zip": "0.4.32",
     "@types/feather-icons": "4.7.0",
     "@types/mithril": "2.0.2",

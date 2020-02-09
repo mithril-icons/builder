@@ -6,10 +6,10 @@ const clean = async (path: string) => {
   return new Promise((resolve, reject) => rimraf(path, (err) => { if (err != null) { reject(err) } else { resolve() } }))
 }
 
-const generate = (name: string) => cp.execSync(`npx ts-node -P tsconfig.json generators/${name}.ts`)
+const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
 
-const packages = ['feather', 'clarity', 'devicon', 'entypo', 'jam']
+const packages = ['feather', 'clarity', 'devicon', 'entypo', 'jam', 'octicons']
 
 option('name', { default: 'world' })
 option('package', { default: 'all' })

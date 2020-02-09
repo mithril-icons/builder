@@ -1,0 +1,24 @@
+{
+  "name": "@mithril-icons/octicons",
+  "version": "1.0.0",
+  "description": "Mithril icons generated from https://octicons.github.com/",
+  "homepage": "https://mithril-icons.com/octicons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mithril-icons/builder"
+  },
+  "keywords": [
+    "mithril",
+    "mithriljs",
+    "icon",
+    "icons",
+    "octicons"
+  ],
+  "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "mithril": "^2.0.4"
+  }
+}
