@@ -109,4 +109,4 @@ dist
 packages/**/**.ts
 packages/**/**.js
 
-assets/
+assets/*.zip
