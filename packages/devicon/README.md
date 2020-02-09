@@ -49,8 +49,8 @@ const Example = {
 You can also import only selected icons directly. This might reduce overall bundle size (depends on your bundler):
 ```
 import m from 'mithril'
-import TypescriptPlain from '@mithril-icons/devicon/components/TypescriptPlain'
-import TypescriptOriginal from '@mithril-icons/devicon/components/TypescriptOriginal'
+import TypescriptPlain from '@mithril-icons/devicon/icons/TypescriptPlain'
+import TypescriptOriginal from '@mithril-icons/devicon/icons/TypescriptOriginal'
 
 const Example = {
   view: function () {

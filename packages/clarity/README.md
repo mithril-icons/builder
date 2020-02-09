@@ -50,8 +50,8 @@ const Example = {
 You can also import only selected icons directly. This might reduce overall bundle size (depends on your bundler):
 ```
 import m from 'mithril'
-import AddLine from '@mithril-icons/clarity/components/AddLine'
-import AlertSolid from '@mithril-icons/clarity/components/AlertSolid'
+import AddLine from '@mithril-icons/clarity/icons/AddLine'
+import AlertSolid from '@mithril-icons/clarity/icons/AlertSolid'
 
 const Example = {
   view: function () {

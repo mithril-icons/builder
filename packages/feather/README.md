@@ -49,8 +49,8 @@ const Example = {
 You can also import only selected icons directly. This might reduce overall bundle size (depends on your bundler):
 ```
 import m from 'mithril'
-import Archive from '@mithril-icons/feather/components/Archive'
-import Activity from '@mithril-icons/feather/components/Activity'
+import Archive from '@mithril-icons/feather/icons/Archive'
+import Activity from '@mithril-icons/feather/icons/Activity'
 
 const Example = {
   view: function () {
