@@ -9,7 +9,7 @@ const clean = async (path: string) => {
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
 
-const packages = ['feather', 'clarity', 'devicon', 'entypo', 'jam', 'octicons']
+const packages = ['feather', 'clarity', 'devicon', 'entypo', 'jam', 'octicons', 'material-design']
 
 option('name', { default: 'world' })
 option('package', { default: 'all' })
