@@ -51,6 +51,7 @@ You can also import only selected icons directly. This might reduce overall bund
 ```
 import m from 'mithril'
 import AddLine from '@mithril-icons/clarity/components/AddLine'
+import AlertSolid from '@mithril-icons/clarity/components/AlertSolid'
 
 const Example = {
   view: function () {

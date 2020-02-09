@@ -50,6 +50,7 @@ You can also import only selected icons directly. This might reduce overall bund
 ```
 import m from 'mithril'
 import Archive from '@mithril-icons/feather/components/Archive'
+import Activity from '@mithril-icons/feather/components/Activity'
 
 const Example = {
   view: function () {
