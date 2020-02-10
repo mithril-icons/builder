@@ -8,11 +8,19 @@ const clean = async (path: string) => {
 
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
+const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish`)
+const bumpVersion = (name: string, version: string) => cp.execSync([
+  `cd packages/${name}`,
+  `npm --no-git-tag-version version ${version}`,
+  'git add package.json',
+  `git commit -m "@mithhril-icons/${name}@$(node -p "require('./package.json').version")"`,
+  `git tag ${name}.$(node -p "require('./package.json').version")`].join(' && '))
 
 const packages = ['feather', 'clarity', 'devicon', 'entypo', 'jam', 'octicons', 'material-design', 'font-awesome']
 
 option('name', { default: 'world' })
 option('package', { default: 'all' })
+option('bump', { default: 'patch' })
 
 task('clean', async () => {
   const target = argv().package as string
@@ -48,6 +56,27 @@ task('build', () => {
   } else {
     logger.info(`Building ${target}`)
     return build(target)
+  }
+})
+
+task('publish', () => {
+  const target = argv().package as string
+  if (packages.some(pkg => pkg === target)) {
+    logger.info(`Publishing ${target}`)
+    publish(target)
+  } else {
+    logger.error(`Unknown package ${target}`)
+  }
+})
+
+task('bump', () => {
+  const target = argv().package as string
+  const version = argv().bump as string
+  if (packages.some(pkg => pkg === target)) {
+    logger.info(`Bumping ${version} in ${target}`)
+    bumpVersion(target, version)
+  } else {
+    logger.error(`Unknown package ${target}`)
   }
 })
 
