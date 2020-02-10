@@ -8,7 +8,7 @@ const clean = async (path: string) => {
 
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
-const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish`)
+const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish --access=public`)
 const bumpVersion = (name: string, version: string) => cp.execSync([
   `cd packages/${name}`,
   `npm --no-git-tag-version version ${version}`,
