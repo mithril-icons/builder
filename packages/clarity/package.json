@@ -22,6 +22,6 @@
     "mithril": "^2.0.4"
   },
   "scripts": {
-    "prepublish": ""
+    "prepublishOnly": "test $(ls icons/ | wc -l) -gt 10    "
   }
 }

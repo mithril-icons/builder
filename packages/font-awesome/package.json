@@ -20,5 +20,8 @@
   "types": "index.d.ts",
   "peerDependencies": {
     "mithril": "^2.0.4"
+  },
+  "scripts": {
+    "prepublishOnly": "test $(ls solid/icons/ | wc -l) -gt 10    "
   }
 }
