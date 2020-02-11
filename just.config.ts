@@ -80,4 +80,6 @@ task('bump', () => {
   }
 })
 
+task('bump-and-publish', series('bump', 'publish'))
+
 task('run', series('clean', 'generate', 'build'))
