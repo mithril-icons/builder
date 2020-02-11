@@ -27,6 +27,7 @@ If you just want to use the generated icons install one of the relevant NPM libr
 If you want to play with builder iteself - check out icon generation, contribute new icon set etc. you need to clone the repository.
 
 A good way to start exploring the codebase is to examine `just.config.ts` file and then one of the generators in `generators` folder
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

@@ -72,7 +72,7 @@ will be rendered to:
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
 
-> TIP: To explore avaliable icons you just need to write `import {} from '@mithril-icons/clarity'` and invoke autocompletion from within curly braces 
+> TIP: To explore available icons you just need to write `import {} from '@mithril-icons/clarity'` and invoke autocompletion from within curly braces 
 
 In addition there are typings for SVG based attributes that can be attached to SVG's.
 
