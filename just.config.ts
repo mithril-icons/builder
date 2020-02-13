@@ -8,6 +8,7 @@ const clean = async (path: string) => {
 
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
+const buildCjs = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json`, outDir: `./packages/${name}/cjs`, module: 'CommonJS' })
 const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish --access=public`)
 const bumpVersion = (name: string, version: string) => cp.execSync([
   `cd packages/${name}`,
@@ -52,10 +53,10 @@ task('build', () => {
   const target = argv().package as string
   if (target === 'all') {
     logger.info('Building all targets')
-    return series(...packages.map(build))
+    return series(...packages.flatMap(pkg => [build(pkg), buildCjs(pkg)]))
   } else {
     logger.info(`Building ${target}`)
-    return build(target)
+    return series(build(target), buildCjs(target))
   }
 })
 

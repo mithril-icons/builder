@@ -68,6 +68,14 @@ will be rendered to:
 ```
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20" id="entypo-add-user" width="50" height="50" fill="#ff4405"><g><path d="M15.989 19.129C16 17 13.803 15.74 11.672 14.822c-2.123-.914-2.801-1.684-2.801-3.334 0-.989.648-.667.932-2.481.12-.752.692-.012.802-1.729 0-.684-.313-.854-.313-.854s.159-1.013.221-1.793c.064-.817-.398-2.56-2.301-3.095-.332-.341-.557-.882.467-1.424-2.24-.104-2.761 1.068-3.954 1.93-1.015.756-1.289 1.953-1.24 2.59.065.78.223 1.793.223 1.793s-.314.17-.314.854c.11 1.718.684.977.803 1.729.284 1.814.933 1.492.933 2.481 0 1.65-.212 2.21-2.336 3.124C.663 15.53 0 17 .011 19.129.014 19.766 0 20 0 20h16s-.014-.234-.011-.871zM17 10V7h-2v3h-3v2h3v3h2v-3h3v-2h-3z"></path></g></svg>
 ```
+### CommonJS 
+If you are not using bundler that can handle ES6 modules easily (e.g. Brunch) the library is also available as a CommonJS module - you can import it by adding `/cjs` postfix:
+```
+const m = require("mithril")
+const i = require("@mithril-icons/entypo/cjs")
+
+m.render(document.body, m(i.AddUser))
+```
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
 

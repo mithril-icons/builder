@@ -68,6 +68,14 @@ will be rendered to:
 ```
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-archive" width="50" height="50" viewBox="0 0 24 24" fill="#ff4405"><path d="M3,3H21V7H3V3M4,8H20V21H4V8M9.5,11A0.5,0.5 0 0,0 9,11.5V13H15V11.5A0.5,0.5 0 0,0 14.5,11H9.5Z"></path></svg>
 ```
+### CommonJS 
+If you are not using bundler that can handle ES6 modules easily (e.g. Brunch) the library is also available as a CommonJS module - you can import it by adding `/cjs` postfix:
+```
+const m = require("mithril")
+const i = require("@mithril-icons/material-design/cjs")
+
+m.render(document.body, m(i.Archive))
+```
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
 

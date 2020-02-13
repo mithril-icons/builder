@@ -16,8 +16,9 @@
   ],
   "author": "Michał Kijowski <michal@kijowski.dev> (https://kijowski.dev)",
   "license": "MIT",
-  "main": "index.js",
+  "module": "index.js",
   "types": "index.d.ts",
+  "sideEffect": false,
   "peerDependencies": {
     "mithril": "^2.0.4"
   },

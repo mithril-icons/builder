@@ -68,6 +68,14 @@ will be rendered to:
 ```
 <svg version="1.1" width="50" height="50" viewBox="0 0 14 16" aria-hidden="true" fill="#ff4405" class="octicon octicon-archive"><path fill-rule="evenodd" d="M13 2H1v2h12V2zM0 4a1 1 0 001 1v9a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 001-1V2a1 1 0 00-1-1H1a1 1 0 00-1 1v2zm2 1h10v9H2V5zm2 3h6V7H4v1z"></path></svg>
 ```
+### CommonJS 
+If you are not using bundler that can handle ES6 modules easily (e.g. Brunch) the library is also available as a CommonJS module - you can import it by adding `/cjs` postfix:
+```
+const m = require("mithril")
+const i = require("@mithril-icons/octicons/cjs")
+
+m.render(document.body, m(i.Archive))
+```
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
 

@@ -72,6 +72,14 @@ will be rendered to:
   <line x1="10" y1="12" x2="14" y2="12"></line>
 </svg>
 ```
+### CommonJS 
+If you are not using bundler that can handle ES6 modules easily (e.g. Brunch) the library is also available as a CommonJS module - you can import it by adding `/cjs` postfix:
+```
+const m = require("mithril")
+const i = require("@mithril-icons/feather/cjs")
+
+m.render(document.body, m(i.Archive))
+```
 ## Typescript support
 All of the icons are explicitly exported by name (no string dictionary kind of thing) so they are easy to work with.
 
