@@ -9,7 +9,7 @@ const clean = async (path: string) => {
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
 const buildCjs = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json`, outDir: `./packages/${name}/cjs`, module: 'CommonJS' })
-const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish --access=public`)
+const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish --access=public`, { encoding: 'utf-8' })
 const bumpVersion = (name: string, version: string) => cp.execSync([
   `cd packages/${name}`,
   `npm --no-git-tag-version version ${version}`,
@@ -62,7 +62,12 @@ task('build', () => {
 
 task('publish', () => {
   const target = argv().package as string
-  if (packages.some(pkg => pkg === target)) {
+  if (target === 'all') {
+    for (const pkg of packages) {
+      logger.info(`Publishing ${pkg}`)
+      publish(pkg)
+    }
+  } else if (packages.some(pkg => pkg === target)) {
     logger.info(`Publishing ${target}`)
     publish(target)
   } else {
@@ -73,7 +78,12 @@ task('publish', () => {
 task('bump', () => {
   const target = argv().package as string
   const version = argv().bump as string
-  if (packages.some(pkg => pkg === target)) {
+  if (target === 'all') {
+    for (const pkg of packages) {
+      logger.info(`Bumping ${version} in ${pkg}`)
+      bumpVersion(pkg, version)
+    }
+  } else if (packages.some(pkg => pkg === target)) {
     logger.info(`Bumping ${version} in ${target}`)
     bumpVersion(target, version)
   } else {
