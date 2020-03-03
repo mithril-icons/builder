@@ -1,8 +1,10 @@
+import { Attributes } from 'mithril'
+
 /**
  * Subset of attributes that can be added to SVG node
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute
  */
-export interface SVGAttributes {
+export interface SVGSpecificAttributes {
   /**
    * The width attribute defines the horizontal length of an element in the user coordinate system.
    * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/width
@@ -93,3 +95,5 @@ export interface SVGAttributes {
    */
   viewBox?: string
 }
+
+export type SVGAttributes = SVGSpecificAttributes & Attributes
