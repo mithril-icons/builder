@@ -8,7 +8,7 @@ const clean = async (path: string) => {
 
 const generate = (name: string) => cp.execSync(`npx ts-node --files -P tsconfig.json generators/${name}.ts`)
 const build = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json` })
-const buildCjs = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json`, outDir: `./packages/${name}/cjs`, module: 'CommonJS' })
+const buildCjs = (name: string) => tscTask({ project: `./packages/${name}/tsconfig.json`, outDir: `./packages/${name}/cjs`, module: 'CommonJS', target: 'es5' })
 const publish = (name: string) => cp.execSync(`cd packages/${name} && npm publish --access=public`, { encoding: 'utf-8' })
 const bumpVersion = (name: string, version: string) => cp.execSync([
   `cd packages/${name}`,
